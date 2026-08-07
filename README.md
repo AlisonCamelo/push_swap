@@ -34,9 +34,8 @@ La pila b comienza vacía.
 
 El objetivo final es:
 
-A                B
-
-[1]              vacío
+A
+[1]
 [3]
 [5]
 [8]
