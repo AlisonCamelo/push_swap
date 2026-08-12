@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/12 18:07:58 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/12 18:16:17 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int main(int argc, char **argv)
         ft_printf("ERROR");
         return(1);
     }
-    var = push_swap(*argv);
+    var = validate_argv(*argv);
     if (var == 1)
         ft_printf("Error");
     else 
