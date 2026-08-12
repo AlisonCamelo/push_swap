@@ -6,13 +6,12 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/11 18:30:04 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/12 18:07:58 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "push_swap.h"
-#include <stdio.h>
-#include <unistd.h>
+#include "./inc/push_swap.h"
+
 
 int push_swap(char *argv)
 {
@@ -32,11 +31,13 @@ int main(int argc, char **argv)
     int var;
 
     if (argc < 2)
-        return(0);
-    else 
-        var = push_swap(*argv);
+    {
+        ft_printf("ERROR");
+        return(1);
+    }
+    var = push_swap(*argv);
     if (var == 1)
-        printf("Error");
+        ft_printf("Error");
     else 
-        printf("GOOD");
+        ft_printf("GOOD");
 }

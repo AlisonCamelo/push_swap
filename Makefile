@@ -1,31 +1,38 @@
 NAME = push_swap
 
+LIBFT_DIR = inc/libft
+LIBFT = $(LIBFT_DIR)/libft.a
+
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC =	push_swap.c	\
+SRC = push_swap.c
 
 OBJ = $(SRC:.c=.o)
 
-INCLUDE = -I.
+INCLUDE = -I. -I$(LIBFT)
 
-AR = ar rcs
 RM = rm -f
 
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(AR) $@ $^
+$(LIBFT):
+	@make -C $(LIBFT_DIR)
+
+$(NAME): $(LIBFT) $(OBJ)
+	$(CC) $(CFLAGS) $(OBJ) $(LIBFT) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) $(INCLUDE) -c $< -o $@
 
 clean:
 	$(RM) $(OBJ)
+	@make -C $(LIBFT_DIR) clean
 
 fclean: clean
 	$(RM) $(NAME)
+	@make -C $(LIBFT_DIR) fclean
 
 re: fclean all
 
-.PHONY: all, clean, fclean, re
+.PHONY: all clean fclean re
