@@ -6,7 +6,8 @@ LIBFT = $(LIBFT_DIR)/libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRC = push_swap.c
+SRC = push_swap.c \
+	src/parsing/validate_argv.c \
 
 OBJ = $(SRC:.c=.o)
 

@@ -14,6 +14,7 @@ typedef struct s_stack
     int integers;
 } t_stack;
 
+int     validate_argv(char **argv);
 
 
 #endif
