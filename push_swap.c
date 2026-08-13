@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/13 18:01:58 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/13 19:05:15 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,20 @@ int check_flags(char *arg, t_flags flags)
     return(0);
 }
 
+int clean_numbers(char **argv)
+{
+    
+}
 int main(int argc, char **argv)
 {
-    int var;
+    t_stack *stack_a;
+    t_stack *stack_b;
+    int stack_size;
+    int i;
 
+    i = 1;
+    stack_a = NULL;
+    stack_b = NULL;
     if (argc < 2)
         return(0);
     var = validate_argv(argv);

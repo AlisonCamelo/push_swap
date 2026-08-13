@@ -24,7 +24,7 @@ typedef struct s_flags
     int bench;
 } t_flags;
 
-int     validate_argv(char **argv);
-
+void init_flags(t_flags *flags);
+int check_flags(char *arg, t_flags flags);
 
 #endif
