@@ -6,26 +6,23 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/13 17:53:12 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/13 18:01:58 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./inc/push_swap.h"
 
-
-int push_swap(char *argv)
+//Inicializando flags a 0
+void init_flags(t_flags *flags)
 {
-    int i;
-
-    i = 0;
-    while (argv[i] != '\0')
-    {
-        while((argv[i] >= '0' && argv[i] <= '9'))
-            i++;
-        return(0);
-    }
-    return(1);    
+    flags->simple = 0;
+    flags->medium = 0;
+    flags->complex = 0;
+    flags->adaptative = 0;
+    flags->bench = 0;    
 }
+
+// funcion que se encarga unicamente de detectar flags
 int check_flags(char *arg, t_flags flags)
 {
     if (ft_strcmp(arg, "--simple") == 0)
@@ -40,6 +37,7 @@ int check_flags(char *arg, t_flags flags)
         return (flags->bench = 1, 1);
     return(0);
 }
+
 int main(int argc, char **argv)
 {
     int var;
