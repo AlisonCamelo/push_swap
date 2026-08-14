@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/14 12:00:18 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/14 12:05:34 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,23 +49,23 @@ int main(int argc, char **argv)
     t_flags flags;
     int i;
 
-    i = 1;
-    stack_a = NULL;
-    stack_b = NULL;
+    //Si no hay suficientes argumentos, return(0);
     if (argc < 2)
         return(0);
+    //inicializa flags y punteros
+    stack_a = NULL;
+    stack_b = NULL;
     init_flags(&flags);
+    i = 1;
     while(argv[i] != NULL)
     {
+        //chequea flags
         if (check_flags(argv[i], &flags))
         {
+        //procesaremos las cadenas de números (Paso 3.3 y 3.4)
+        //llamaremos a tu función clean_numbers / validate
             i++;
-            
         }
     }
-    var = validate_argv(argv);
-    if (var == 1)
-        ft_printf("Error");
-    else 
-        ft_printf("GOOD");
+    return(0);
 }
