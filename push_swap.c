@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/14 12:22:39 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/14 12:48:25 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,7 @@ int main(int argc, char **argv)
     t_stack *stack_a;
     t_stack *stack_b;
     t_flags flags;
+    char **args; // array de strings
     int i;
 
     //Si no hay suficientes argumentos, return(0);
@@ -59,20 +60,16 @@ int main(int argc, char **argv)
     i = 1;
     while(argv[i] != NULL)
     {
-        //chequea flags
+        //chequea flags, si es, guardamos y continuamos
         if (check_flags(argv[i], &flags))
         {
             i++;
-            continue;
+            continue ;
         }
-        if (check_flags(argv[i], '0'))
-        {
-            ft_split(argv[i], ' ')
-            //procesaremos las cadenas de números (Paso 3.3 y 3.4)
-            //llamaremos a tu función clean_numbers / validate
-            i++;
-        }    
-    
+        //si esta aqui es un numero o una cadena de ellos
+        args = ft_split(argv[i], ' ');
+        // AQUÍ PASO 3.4: Recorrer 'args', validar e insertar en stack_a
+        // Y no olvidar liberar 'args' al terminar ese grupo
     }
     return(0);
 }
