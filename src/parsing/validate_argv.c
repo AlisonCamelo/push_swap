@@ -6,11 +6,19 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 18:16:32 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/14 12:58:11 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/14 13:34:59 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "./inc/push_swap.h"
+
 int validate_argv(char **args)
 {
-    
+    int i;
+
+    i = 0; 
+    while (args[i] != NULL)
+    {
+        i++;
+    }
 }
