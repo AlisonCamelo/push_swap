@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/14 12:48:25 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/14 12:58:20 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,6 @@ int check_flags(char *arg, t_flags *flags)
     return(0);
 }
 
-int clean_numbers(char **argv)
-{
-    
-}
 int main(int argc, char **argv)
 {
     t_stack *stack_a;
@@ -68,8 +64,9 @@ int main(int argc, char **argv)
         }
         //si esta aqui es un numero o una cadena de ellos
         args = ft_split(argv[i], ' ');
-        // AQUÍ PASO 3.4: Recorrer 'args', validar e insertar en stack_a
-        // Y no olvidar liberar 'args' al terminar ese grupo
+        validate_argv(args);
+        // Recorrer 'args', validar e insertar en stack_a
+        // No olvidar liberar 'args' al terminar ese grupo
     }
     return(0);
 }

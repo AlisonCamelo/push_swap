@@ -6,11 +6,11 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 18:16:32 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/12 18:22:23 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/14 12:58:11 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int validate_argv(char **argv)
+int validate_argv(char **args)
 {
     
 }
