@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/14 12:05:34 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/14 12:15:50 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,7 +62,9 @@ int main(int argc, char **argv)
         //chequea flags
         if (check_flags(argv[i], &flags))
         {
-        //procesaremos las cadenas de números (Paso 3.3 y 3.4)
+            if(argv[i++])
+                ft_split(argv[i], ' ')
+            //procesaremos las cadenas de números (Paso 3.3 y 3.4)
         //llamaremos a tu función clean_numbers / validate
             i++;
         }
