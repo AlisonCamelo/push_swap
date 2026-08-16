@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/14 12:58:20 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/16 16:31:05 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,6 +67,7 @@ int main(int argc, char **argv)
         validate_argv(args);
         // Recorrer 'args', validar e insertar en stack_a
         // No olvidar liberar 'args' al terminar ese grupo
+    i++;
     }
     return(0);
 }
