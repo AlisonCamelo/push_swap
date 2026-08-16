@@ -6,11 +6,11 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/16 16:31:05 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/16 20:49:03 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/push_swap.h"
+#include "inc/push_swap.h"
 
 //Inicializando flags a 0
 void init_flags(t_flags *flags)
@@ -25,15 +25,15 @@ void init_flags(t_flags *flags)
 // funcion que se encarga unicamente de detectar flags
 int check_flags(char *arg, t_flags *flags)
 {
-    if (ft_strcmp(arg, "--simple") == 0)
+    if (strcmp(arg, "--simple") == 0)
         return (flags->simple = 1, 1);
-    if (ft_strcmp(arg, "--medium") == 0)
+    if (strcmp(arg, "--medium") == 0)
         return (flags->medium = 1, 1);
-    if (ft_strcmp(arg, "--complex") == 0)
+    if (strcmp(arg, "--complex") == 0)
         return (flags->complex = 1, 1);
-    if (ft_strcmp(arg, "--adaptive") == 0)
+    if (strcmp(arg, "--adaptive") == 0)
         return (flags->adaptative = 1, 1);
-    if (ft_strcmp(arg, "--bench") == 0)
+    if (strcmp(arg, "--bench") == 0)
         return (flags->bench = 1, 1);
     return(0);
 }

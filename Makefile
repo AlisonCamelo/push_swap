@@ -6,14 +6,14 @@ LIBFT = $(LIBFT_DIR)/libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
+# Se añadió la extensión .c que faltaba
 SRC = push_swap.c \
-	src/parsing/validate_argv.c \
-	src/parsing/is_valid_number \
-	
+      src/parsing/validate_argv.c \
 
 OBJ = $(SRC:.c=.o)
 
-INCLUDE = -I. -I$(LIBFT)
+# Se cambió $(LIBFT) por $(LIBFT_DIR) para incluir la carpeta de cabeceras correctamente
+INCLUDE = -I. -I$(LIBFT_DIR)
 
 RM = rm -f
 
@@ -34,6 +34,7 @@ clean:
 
 fclean: clean
 	$(RM) $(NAME)
+	$(RM) $(OBJ)
 	@make -C $(LIBFT_DIR) fclean
 
 re: fclean all

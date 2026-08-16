@@ -6,11 +6,11 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 18:16:32 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/16 18:29:44 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/16 20:53:56 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "./inc/push_swap.h"
+#include "inc/push_swap.h"
 
 // Devuelve 1 si es un número válido, 0 si no lo es
 int is_valid_number(char *str)
@@ -51,7 +51,7 @@ int validate_argv(char **args)
         //Convertimos a long con ft_atol
         num = ft_atol(args[i]);
          //verificando que el int quepa en 32 bits
-        if(num < INT_MIN || num > INT_MAX)
+        if(num < INT_MIN || num > INT_MAX) //CHECKKKKKKK!!!!!!! CHEQUEAR
             return(0);
         i++;
     }
