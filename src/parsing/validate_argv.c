@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 18:16:32 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/16 17:29:24 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/16 17:36:39 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ int validate_argv(char **args)
     //recorremos string por string hasta llegar a NULL
     while(args[i] != NULL)
     {
-        //Pasamos el string actual a la funcion is_valid_numbers+
+        //Pasamos el string actual a la funcion is_valid_numbers
         if(!is_valid_number(args[i]))
             return(0); //si falla devuelve error
         i++;
