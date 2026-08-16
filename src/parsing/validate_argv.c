@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 18:16:32 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/16 18:28:28 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/16 18:29:44 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int validate_argv(char **args)
         //Convertimos a long con ft_atol
         num = ft_atol(args[i]);
          //verificando que el int quepa en 32 bits
-        if(num < -2147483648 || num > 2147483647)
+        if(num < INT_MIN || num > INT_MAX)
             return(0);
         i++;
     }
