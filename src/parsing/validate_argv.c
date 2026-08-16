@@ -6,15 +6,34 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 18:16:32 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/16 17:01:51 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/16 17:29:24 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./inc/push_swap.h"
 
+// Devuelve 1 si es un número válido, 0 si no lo es
 int is_valid_number(char *str)
 {
-    
+    int j;
+
+    j = 0;
+    //Si empieza por '+' o '-', saltamos ese carácter
+    if(str[j] == '-' || str[j] == '+')
+        j++;
+    //Si era SOLO "+" o "-" y no hay dígitos después no es valido
+    if(str[j] == '\0')
+    return(0);
+    //Revisamos hasta el final de la cadena ('\0')
+    while(str[j] != '\0')
+    {
+        //Si hay algo que NO es un número entre '0' y '9' no es valido
+        if(str[j] < '0' || str[j] > '9')
+            return(0);
+        j++;
+    }
+    //al good
+    return(1);
 }
 
 int validate_argv(char **args)
