@@ -8,6 +8,8 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = push_swap.c \
 	src/parsing/validate_argv.c \
+	src/parsing/is_valid_number \
+	
 
 OBJ = $(SRC:.c=.o)
 

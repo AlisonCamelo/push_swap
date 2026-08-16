@@ -27,5 +27,7 @@ typedef struct s_flags
 void init_flags(t_flags *flags);
 int check_flags(char *arg, t_flags *flags);
 int validate_argv(char **args);
+int is_valid_number(char *str);
+
 
 #endif
