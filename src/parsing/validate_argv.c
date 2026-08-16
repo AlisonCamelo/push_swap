@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 18:16:32 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/16 17:36:39 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/16 18:28:28 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,7 @@ int is_valid_number(char *str)
 int validate_argv(char **args)
 {
     int i;
+    long num;
 
     i = 0;
     //recorremos string por string hasta llegar a NULL
@@ -47,6 +48,11 @@ int validate_argv(char **args)
         //Pasamos el string actual a la funcion is_valid_numbers
         if(!is_valid_number(args[i]))
             return(0); //si falla devuelve error
+        //Convertimos a long con ft_atol
+        num = ft_atol(args[i]);
+         //verificando que el int quepa en 32 bits
+        if(num < -2147483648 || num > 2147483647)
+            return(0);
         i++;
     }
     return(1); //todos los string args son validos
