@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/12 18:16:32 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/16 20:53:56 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/17 18:40:46 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int is_valid_number(char *str)
     while(str[j] != '\0')
     {
         //Si hay algo que NO es un número entre '0' y '9' no es valido
-        if(str[j] < '0' || str[j] > '9')
+        if(!ft_isdigi(str[j]))
             return(0);
         j++;
     }
