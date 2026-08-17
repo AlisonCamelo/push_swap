@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/17 20:19:30 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/17 20:20:51 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int main(int argc, char **argv)
     while(argv[i] != NULL)
     {
         //chequea flags, si es, guardamos y continuamos
-        if (check_flags(argv[i], &flags))
+        if (check_flgs(argv[i], &flags))
         {
             i++;
             continue ;
