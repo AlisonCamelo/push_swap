@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/18 19:56:19 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/18 21:00:19 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,10 @@ int main(int argc, char **argv)
         }
         //si esta aqui es un numero o una cadena de ellos
         args = ft_split(argv[i], ' ');
-        validate_argv(args);
         if (!validate_argv(args))//validar sintaxis y rango
         {
             message_error(); // Imprime "Error\n"
-            return ;      // Termina el programa inmediatamente
+            return(1);      // Termina el programa inmediatamente
         }
         j = 0;
         while(args[j] != NULL)
@@ -83,11 +82,17 @@ int main(int argc, char **argv)
             {
                 message_error();
                 // Aquí luego liberaremos memoria de stack_a y args
-                return ;
+                return(1);
             }
             stack_add_back(&stack_a, stack_new((int)ft_atol(args[j])));
         }
     i++;
+    }
+    t_stack *temp = stack_a;
+    while (temp != NULL)
+    {
+        ft_printf("Nodo en stack_a: %d\n", temp->value);
+        temp = temp->next;
     }
     return(0);
 }
