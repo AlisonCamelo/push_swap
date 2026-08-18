@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/18 18:27:21 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/18 18:38:15 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,4 +35,12 @@ t_stack *stack_new(int num)
     new_node->prev = NULL;
     new_node->next = NULL;
     return(new_node);
+}
+t_stack *stack_add_back(t_stack **stack, t_stack *new_node)
+{
+    t_stack *last;
+    
+    if (!stack || !new_node)
+        return ;
+        
 }
