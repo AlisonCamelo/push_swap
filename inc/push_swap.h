@@ -7,6 +7,8 @@
 # include <stdio.h>
 # include <string.h>
 # include <unistd.h>
+# include <stdbool.h>
+
 # include "libft/libft.h"
 
 typedef struct s_stack 
@@ -18,15 +20,15 @@ typedef struct s_stack
 
 typedef struct s_flags
 {
-    int simple;
-    int medium;
-    int complex;
-    int adaptative;
-    int bench;
+    bool simple;
+    bool medium;
+    bool complex;
+    bool adaptative;
+    bool bench;
 } t_flags;
 
 void init_flags(t_flags *flags);
-int check_flags(char *arg, t_flags *flags);
+bool check_flags(char *arg, t_flags *flags);
 int validate_argv(char **args);
 int is_valid_number(char *str);
 

@@ -6,26 +6,32 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/17 20:20:51 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/18 13:55:35 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 
+//Funcion de error
+void message_error()
+{
+    write(2, "Error\n", 6);
+}
+
 //Inicializando flags a 0
 void init_flags(t_flags *flags)
 {
-    flags->simple = 0;
-    flags->medium = 0;
-    flags->complex = 0;
-    flags->adaptative = 0;
-    flags->bench = 0;    
+    flags->simple = false;
+    flags->medium = false;
+    flags->complex = false;
+    flags->adaptative = false;
+    flags->bench = false;    
 }
 
 // funcion que se encarga unicamente de detectar flags
-int check_flags(char *arg, t_flags *flags)
+bool check_flags(char *arg, t_flags *flags)
 {
-    if (strcmp(arg, "--simple") == 0)
+    if (strcmp(arg, "--simple") == false)
         return (flags->simple = 1, 1);
     if (strcmp(arg, "--medium") == 0)
         return (flags->medium = 1, 1);
@@ -43,12 +49,15 @@ int main(int argc, char **argv)
     t_stack *stack_a;
     t_stack *stack_b;
     t_flags flags;
-    char **args; // array de strings
-    int i;
-
+    char    **args; // array de strings
+    int     i;
+    
     //Si no hay suficientes argumentos, return(0);
     if (argc < 2)
-        return(0);
+        return(1);
+
+
+        
     //inicializa flags y punteros
     stack_a = NULL;
     stack_b = NULL;
@@ -57,7 +66,7 @@ int main(int argc, char **argv)
     while(argv[i] != NULL)
     {
         //chequea flags, si es, guardamos y continuamos
-        if (check_flgs(argv[i], &flags))
+        if (check_flags(argv[i], &flags))
         {
             i++;
             continue ;
