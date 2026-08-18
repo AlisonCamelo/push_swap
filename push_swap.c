@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/18 13:55:35 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/18 18:01:22 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,25 +21,25 @@ void message_error()
 //Inicializando flags a 0
 void init_flags(t_flags *flags)
 {
-    flags->simple = false;
-    flags->medium = false;
-    flags->complex = false;
-    flags->adaptative = false;
-    flags->bench = false;    
+    flags->simple = 0;
+    flags->medium = 0;
+    flags->complex = 0;
+    flags->adaptative = 0;
+    flags->bench = 0;    
 }
 
 // funcion que se encarga unicamente de detectar flags
-bool check_flags(char *arg, t_flags *flags)
+int check_flags(char *arg, t_flags *flags)
 {
-    if (strcmp(arg, "--simple") == false)
+    if (ft_strcmp(arg, "--simple") == 0)
         return (flags->simple = 1, 1);
-    if (strcmp(arg, "--medium") == 0)
+    if (ft_strcmp(arg, "--medium") == 0)
         return (flags->medium = 1, 1);
-    if (strcmp(arg, "--complex") == 0)
+    if (ft_strcmp(arg, "--complex") == 0)
         return (flags->complex = 1, 1);
-    if (strcmp(arg, "--adaptive") == 0)
+    if (ft_strcmp(arg, "--adaptive") == 0)
         return (flags->adaptative = 1, 1);
-    if (strcmp(arg, "--bench") == 0)
+    if (ft_strcmp(arg, "--bench") == 0)
         return (flags->bench = 1, 1);
     return(0);
 }
@@ -54,10 +54,7 @@ int main(int argc, char **argv)
     
     //Si no hay suficientes argumentos, return(0);
     if (argc < 2)
-        return(1);
-
-
-        
+        return(0);
     //inicializa flags y punteros
     stack_a = NULL;
     stack_b = NULL;
@@ -74,6 +71,11 @@ int main(int argc, char **argv)
         //si esta aqui es un numero o una cadena de ellos
         args = ft_split(argv[i], ' ');
         validate_argv(args);
+        if (!validate_argv(args))
+        {
+            message_error(); // Imprime "Error\n"
+            return (1);      // Termina el programa inmediatamente
+        }
         // Recorrer 'args', validar e insertar en stack_a
         // No olvidar liberar 'args' al terminar ese grupo
     i++;

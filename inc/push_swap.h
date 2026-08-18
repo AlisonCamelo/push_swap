@@ -14,23 +14,25 @@
 typedef struct s_stack 
 {
     int value;
-    struct s_tack *prev;
+    struct s_stack *prev;
     struct s_stack *next;
 } t_stack;
 
 typedef struct s_flags
 {
-    bool simple;
-    bool medium;
-    bool complex;
-    bool adaptative;
-    bool bench;
+    int simple;
+    int medium;
+    int complex;
+    int adaptative;
+    int bench;
 } t_flags;
 
 void init_flags(t_flags *flags);
-bool check_flags(char *arg, t_flags *flags);
+int check_flags(char *arg, t_flags *flags);
 int validate_argv(char **args);
 int is_valid_number(char *str);
+int check_duplicates(t_stack *stack, int num);
+void message_error();
 
 
 #endif
