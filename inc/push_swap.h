@@ -33,6 +33,6 @@ int validate_argv(char **args);
 int is_valid_number(char *str);
 int check_duplicates(t_stack *stack, int num);
 void message_error();
-
-
+t_stack *stack_new(int num);
+t_stack *stack_add_back(t_stack **stack, t_stack *new_node);
 #endif

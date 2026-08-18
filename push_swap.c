@@ -6,14 +6,14 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/18 18:03:44 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/18 19:56:19 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 
 //Funcion de error
-void message_error()
+void message_error(void)
 {
     write(2, "Error\n", 6);
 }
@@ -50,7 +50,7 @@ int main(int argc, char **argv)
     t_stack *stack_b;
     t_flags flags;
     char    **args; // array de strings
-    int     i;
+    int     i, j;
     
     //Si no hay suficientes argumentos, return(0);
     if (argc < 2)
@@ -74,10 +74,19 @@ int main(int argc, char **argv)
         if (!validate_argv(args))//validar sintaxis y rango
         {
             message_error(); // Imprime "Error\n"
-            return (1);      // Termina el programa inmediatamente
+            return ;      // Termina el programa inmediatamente
         }
-        // Recorrer 'args', validar e insertar en stack_a
-        // No olvidar liberar 'args' al terminar ese grupo
+        j = 0;
+        while(args[j] != NULL)
+        {
+            if(check_duplicates(stack_a, (int)ft_atol(args[j])))
+            {
+                message_error();
+                // Aquí luego liberaremos memoria de stack_a y args
+                return ;
+            }
+            stack_add_back(&stack_a, stack_new((int)ft_atol(args[j])));
+        }
     i++;
     }
     return(0);
