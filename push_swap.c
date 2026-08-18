@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/18 21:00:19 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/18 21:14:20 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int main(int argc, char **argv)
     
     //Si no hay suficientes argumentos, return(0);
     if (argc < 2)
-        return(0);
+        return(-1);
     //inicializa flags y punteros
     stack_a = NULL;
     stack_b = NULL;
@@ -87,12 +87,6 @@ int main(int argc, char **argv)
             stack_add_back(&stack_a, stack_new((int)ft_atol(args[j])));
         }
     i++;
-    }
-    t_stack *temp = stack_a;
-    while (temp != NULL)
-    {
-        ft_printf("Nodo en stack_a: %d\n", temp->value);
-        temp = temp->next;
     }
     return(0);
 }
