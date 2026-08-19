@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   trialspush_swap.c                                  :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 14:15:13 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 16:30:58 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ static int check_flags(char *argv, t_flags *flags)
         flags->parser_nums = 1;
     return(1);
 }
-static int validate_argv(char *argv, char **list_str, t_flags *flags)
+static int check_valid_num(char *argv, char **list_str, t_flags *flags)
 {
     char **nums;
     int i;
@@ -66,17 +66,23 @@ static int validate_argv(char *argv, char **list_str, t_flags *flags)
         return(0);
     while(*argv == ' ') //si hay espacios, continua, esto por si alguien solo manda espacios como argumentos
         argv++;
-    if(!*argv)
+    if(!*argv) //si argv se quedo vacio return(0)
         return(0);
     nums = ft_split(argv, ' ');
-    if(!nums)
+    if(!nums) // split fallo? retorna
         return(0);
     i = 0;
     while(nums[i])
     {
         if(!is_valid_number(nums[i++]))//pasa nums[i] a is_valid_number y luego incrementa para ñla siguiente vuelta al buble
-            return(ft_free(nums), 0);
+            return(ft_free(nums), 0); //si falla libera memoria y retorna(0)
     }
+    ft_free(nums); //libera todo el split(ya valido todos los textos)
+    if(flags->parser_nums == 1)
+        return(0);
+    ///////////////////////////////////
+    flags->parser_nums = 0;
+    return(1);
 }
 
 int main(int argc, char **argv)
