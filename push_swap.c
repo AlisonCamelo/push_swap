@@ -1,92 +1,98 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   trialspush_swap.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/18 21:14:20 by acamelo          ###   ########.fr       */
+/*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
+/*   Updated: 2026/08/19 14:15:13 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 
-//Funcion de error
-void message_error(void)
+static void init_flags(t_flags *flags)
 {
-    write(2, "Error\n", 6);
-}
-
-//Inicializando flags a 0
-void init_flags(t_flags *flags)
-{
+    //parser_nums = -1 no ha leido nada el programa.
+    // 0 = el programa esta leyendo las flags del inicio
+    // 1 = el programa ha encontrado y leido numeros, 
+    //si luego hay flags en medio hay errores
+    flags->parser_nums = -1;
     flags->simple = 0;
     flags->medium = 0;
     flags->complex = 0;
     flags->adaptative = 0;
-    flags->bench = 0;    
+    flags->bench = 0;
+    flags->has_flag = 0; //1 hay flags, 0 no hay
 }
-
-// funcion que se encarga unicamente de detectar flags
-int check_flags(char *arg, t_flags *flags)
+static int check_flags(char *argv, t_flags *flags)
 {
-    if (ft_strcmp(arg, "--simple") == 0)
+	size_t	strategies;
+    //si no hay argv o no hay -- error
+    if(!argv || argv[0] != '-' || argv[1] != '-')
+        return(0);
+    if (ft_strcmp(argv, "--simple") == 0)
         return (flags->simple = 1, 1);
-    if (ft_strcmp(arg, "--medium") == 0)
+    else if (ft_strcmp(argv, "--medium") == 0)
         return (flags->medium = 1, 1);
-    if (ft_strcmp(arg, "--complex") == 0)
+    else if (ft_strcmp(argv, "--complex") == 0)
         return (flags->complex = 1, 1);
-    if (ft_strcmp(arg, "--adaptive") == 0)
+    else if (ft_strcmp(argv, "--adaptive") == 0)
         return (flags->adaptative = 1, 1);
-    if (ft_strcmp(arg, "--bench") == 0)
+    else if (ft_strcmp(argv, "--bench") == 0)
         return (flags->bench = 1, 1);
-    return(0);
+    else 
+        return(0);
+    //strategias es la suma de las flags activadas
+    strategies = flags->adaptative + flags->simple 
+        + flags->medium + flags->complex;
+    //si la suma es mayor que uno eso quiere decir que
+    //han escrito mas de una flag en el codigo
+    if(strategies > 1)
+        return(0);
+    flags->has_flag = strategies + flags->bench;
+    if(flags->parser_nums == 0)
+        flags->parser_nums = 1;
+    return(1);
+}
+static int validate_argv(char *argv, char **list_str, t_flags *flags)
+{
+    char **nums;
+    int i;
+    //si por aluna razon se encuentra con algo que no sea un
+    //numero, devuelve error. Solo proteccion
+    if(!argv || argv[0] == '-' && argv[1] == '-')
+        return(0);
+    while(*argv == ' ') //si hay espacios, continua, esto por si alguien solo manda espacios como argumentos
+        argv++;
+    if(!*argv)
+        return(0);
+    nums = ft_split(argv, ' ');
+    if(!nums)
+        return(0);
+    i = 0;
+    while(nums[i])
+    {
+        if(!is_valid_number(nums[i++]))//pasa nums[i] a is_valid_number y luego incrementa para ñla siguiente vuelta al buble
+            return(ft_free(nums), 0);
+    }
 }
 
 int main(int argc, char **argv)
 {
-    t_stack *stack_a;
-    t_stack *stack_b;
     t_flags flags;
-    char    **args; // array de strings
-    int     i, j;
+    char **args;
+    int i;
     
-    //Si no hay suficientes argumentos, return(0);
-    if (argc < 2)
-        return(-1);
-    //inicializa flags y punteros
-    stack_a = NULL;
-    stack_b = NULL;
-    init_flags(&flags);
-    i = 1;
-    while(argv[i] != NULL)
+    if (argc > 1)
     {
-        //chequea flags, si es, guardamos y continuamos
-        if (check_flags(argv[i], &flags))
+        init_flags(&flags);
+        i = 1;
+        while (argv[i] != NULL)
         {
-            i++;
-            continue ;
+            if(check_flags(argv[i], &flags));
         }
-        //si esta aqui es un numero o una cadena de ellos
-        args = ft_split(argv[i], ' ');
-        if (!validate_argv(args))//validar sintaxis y rango
-        {
-            message_error(); // Imprime "Error\n"
-            return(1);      // Termina el programa inmediatamente
-        }
-        j = 0;
-        while(args[j] != NULL)
-        {
-            if(check_duplicates(stack_a, (int)ft_atol(args[j])))
-            {
-                message_error();
-                // Aquí luego liberaremos memoria de stack_a y args
-                return(1);
-            }
-            stack_add_back(&stack_a, stack_new((int)ft_atol(args[j])));
-        }
-    i++;
-    }
-    return(0);
+    }    
+    ft_error();
 }

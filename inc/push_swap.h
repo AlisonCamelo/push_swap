@@ -24,8 +24,11 @@ typedef struct s_flags
     int complex;
     int adaptative;
     int bench;
+    int has_flag;
+    int parser_nums;
 } t_flags;
 
+// Util functions
 void init_flags(t_flags *flags);
 int check_flags(char *arg, t_flags *flags);
 int validate_argv(char **args);
@@ -34,4 +37,8 @@ int check_duplicates(t_stack *stack, int num);
 void message_error();
 t_stack *stack_new(int num);
 void stack_add_back(t_stack **stack, t_stack *new_node);
+
+// Algorithm utils
+
+// Instruction functions
 #endif

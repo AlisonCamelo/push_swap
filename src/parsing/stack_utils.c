@@ -6,12 +6,50 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/18 20:44:38 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 14:17:18 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 
+// Devuelve 1 si es un número válido, 0 si no lo es
+int is_valid_number(char *str)
+{
+    int j;
+
+    j = 0;
+    //Si empieza por '+' o '-', saltamos ese carácter
+    if(str[j] == '-' || str[j] == '+')
+        j++;
+    //Si era SOLO "+" o "-" y no hay dígitos después no es valido
+    if(str[j] == '\0')
+    return(0);
+    //Revisamos hasta el final de la cadena ('\0')
+    while(str[j] != '\0')
+    {
+        //Si hay algo que NO es un número entre '0' y '9' no es valido
+        if(!ft_isdigit(str[j]))
+            return(0);
+        j++;
+    }
+    //al good
+    return(1);
+}
+void ft_error()
+{
+    write(2, "Error\n", 6);
+}
+void ft_free(char **nums)
+{
+    int i;
+
+    i = 0;
+    if (!nums)
+		return ;
+	while (nums[i])
+		free(nums[i++]);
+	free(nums);
+}
 int check_duplicates(t_stack *stack, int num)
 {
     //mientras que stack no sea null
