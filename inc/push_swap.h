@@ -54,6 +54,7 @@ void ft_free(char **nums);
 int check_duplicates(t_stack *stack, int num);
 void message_error();
 int	ft_join_args_with_space(char **list_str, char *args);
+static void *ft_free_and_error(char **list_str);
 t_stack *stack_new(int num);
 void stack_add_back(t_stack **stack, t_stack *new_node);
 

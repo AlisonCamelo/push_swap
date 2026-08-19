@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 18:59:50 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 19:15:08 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,17 @@ static int check_valid_num(char *argv, char **list_str, t_flags *flags)
     flags->parser_nums = 0; //si por el contraro no hubo error al leer nada parser sera 0
     return(1); //se ha completado con exito
 }
-
+static void *ft_free_and_error(char **list_str)
+{
+    write(2, "Error\n", 6);
+    if(list_str && *list_str)
+    {
+        free(*list_str);
+        *list_str = NULL;
+    }
+    return(NULL);
+}
+ 
 int main(int argc, char **argv)
 {
     t_movements *move;
