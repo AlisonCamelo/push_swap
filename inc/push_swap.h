@@ -28,6 +28,22 @@ typedef struct s_flags
     int parser_nums;
 } t_flags;
 
+typedef struct s_movements
+{
+	int	sa;
+	int	sb;
+	int	ss;
+	int	pa;
+	int	pb;
+	int	ra;
+	int	rb;
+	int	rr;
+	int	rra;
+	int	rrb;
+	int	rrr;
+	int	total_movements;
+}	t_movements;
+
 // Util functions
 static void init_flags(t_flags *flags);
 static int check_flags(char *argv, t_flags *flags);

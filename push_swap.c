@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 18:45:02 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 18:59:50 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,8 +85,8 @@ static int check_valid_num(char *argv, char **list_str, t_flags *flags)
 
 int main(int argc, char **argv)
 {
+    t_movements *move;
     t_flags flags;
-    char **args;
     int i;
     
     if (argc > 1)
