@@ -47,7 +47,7 @@ typedef struct s_movements
 // Util functions
 static void init_flags(t_flags *flags);
 static int check_flags(char *argv, t_flags *flags);
-static int check_valid_num(char *argv, char **list_str, t_flags *flags)
+static int check_valid_num(char *argv, char **list_str, t_flags *flags);
 int is_valid_number(char *str);
 void ft_error();
 void ft_free(char **nums);

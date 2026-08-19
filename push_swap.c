@@ -6,12 +6,13 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 19:15:08 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 20:17:19 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 
+//inicilizar flags
 static void init_flags(t_flags *flags)
 {
     //parser_nums = -1 no ha leido nada el programa.
@@ -25,6 +26,7 @@ static void init_flags(t_flags *flags)
     flags->bench = 0;
     flags->has_flag = 0; //1 hay flags, 0 no hay
 }
+//chequea flags e implementa las estrategias
 static int check_flags(char *argv, t_flags *flags)
 {
 	size_t	strategies;
@@ -54,6 +56,8 @@ static int check_flags(char *argv, t_flags *flags)
         flags->parser_nums = 1;
     return(1);
 }
+//funcion que determina si los argumentos son numeros validos a demas una ves hace el split y los demas chequeos
+//hace un join que lo qque permite es unir argumento por argumento al final de la lista list_str seguido de un espacio
 static int check_valid_num(char *argv, char **list_str, t_flags *flags)
 {
     char **nums;
@@ -82,6 +86,7 @@ static int check_valid_num(char *argv, char **list_str, t_flags *flags)
     flags->parser_nums = 0; //si por el contraro no hubo error al leer nada parser sera 0
     return(1); //se ha completado con exito
 }
+//funcion que muestra error y que libera memoria si aun no ha sido liberada correctamente
 static void *ft_free_and_error(char **list_str)
 {
     write(2, "Error\n", 6);
@@ -92,7 +97,31 @@ static void *ft_free_and_error(char **list_str)
     }
     return(NULL);
 }
- 
+ //
+int *check_and_valid_args(char **argv, t_flags *flags)
+{
+    char **args;
+    char *list_str;
+    int *list_index;
+
+    args = argv;
+    list_str = ft_strdup("");//inicializa una cadena vacia
+    if (!list_str)//si no funciona retrna NULL
+        return(NULL);
+    init_flags(&flags); //inicializa flags
+    while(*args) // mientras args exista
+    {
+        if(!check_flags(*args, flags) &&  //si no hay flags y no hay numeros validos 
+                !check_valid_num(*args, &list_str, flags))
+                return(ft_free_and_error(&list_str)); // libera el espacio y retorna error
+        args++; //si todo va bien continua iterando en los argumentos y sigue chequeando las flags y los numeros
+    }
+    if(flags->simple + flags->medium + flags->complex == 0) //si la suma de las flags es cero eso quiere decir que no han puesto flags
+        flags->adaptative; // por lo tanto debe elegirse adaptaive por defecto
+    free(list_str);
+}
+
+
 int main(int argc, char **argv)
 {
     t_movements *move;
