@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 17:59:31 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 18:45:02 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,8 @@ static int check_valid_num(char *argv, char **list_str, t_flags *flags)
     ft_free(nums); //libera todo el split(ya valido todos los textos)
     if(flags->parser_nums == 1) // si hubo algun error de logica/etc..
         return(0); //hubo error retorna 0
-    if (!ft_join_args_with_space(list_str, argv))//tomar un número nuevo, ponerle un espacio al final y pegarlo al texto acumulado que ya tenías, limpiando la basura de memoria en el proceso.
-		return (0);
+    if (!ft_join_args_with_space(list_str, argv))//si no se puede tomar un número nuevo, ponerle un espacio al final y pegarlo al texto acumulado que ya tenías, limpiando la basura de memoria en el proceso.
+		return (0);//retorna 0
     flags->parser_nums = 0; //si por el contraro no hubo error al leer nada parser sera 0
     return(1); //se ha completado con exito
 }
