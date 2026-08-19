@@ -1,48 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   oldpush_swap.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/11 17:42:08 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 10:46:41 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 21:00:40 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
-
-//Funcion de error
-void message_error(void)
-{
-    write(2, "Error\n", 6);
-}
-
-//Inicializando flags a 0
-void init_flags(t_flags *flags)
-{
-    flags->simple = 0;
-    flags->medium = 0;
-    flags->complex = 0;
-    flags->adaptative = 0;
-    flags->bench = 0;    
-}
-
-// funcion que se encarga unicamente de detectar flags
-int check_flags(char *arg, t_flags *flags)
-{
-    if (ft_strcmp(arg, "--simple") == 0)
-        return (flags->simple = 1, 1);
-    if (ft_strcmp(arg, "--medium") == 0)
-        return (flags->medium = 1, 1);
-    if (ft_strcmp(arg, "--complex") == 0)
-        return (flags->complex = 1, 1);
-    if (ft_strcmp(arg, "--adaptive") == 0)
-        return (flags->adaptative = 1, 1);
-    if (ft_strcmp(arg, "--bench") == 0)
-        return (flags->bench = 1, 1);
-    return(0);
-}
 
 int main(int argc, char **argv)
 {

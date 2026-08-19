@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 20:17:19 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 21:00:23 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -118,7 +118,9 @@ int *check_and_valid_args(char **argv, t_flags *flags)
     }
     if(flags->simple + flags->medium + flags->complex == 0) //si la suma de las flags es cero eso quiere decir que no han puesto flags
         flags->adaptative; // por lo tanto debe elegirse adaptaive por defecto
-    free(list_str);
+    if (!ft_indexator(list_str, &list_index, flags))
+		return (ft_error_handler(&list_str), NULL);
+	return (free(list_str), list_index);
 }
 
 

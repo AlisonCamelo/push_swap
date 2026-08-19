@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 17:59:53 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 20:25:33 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,6 +70,7 @@ int	ft_join_args_with_space(char **list_str, char *args)
 		return (0);
 	return (1);
 }
+/*
 int check_duplicates(t_stack *stack, int num)
 {
     //mientras que stack no sea null
@@ -110,4 +111,4 @@ void stack_add_back(t_stack **stack, t_stack *new_node)
         last = last->next;
     last->next = new_node;
     new_node->prev = last;
-}
+}*/
