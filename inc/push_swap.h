@@ -29,10 +29,12 @@ typedef struct s_flags
 } t_flags;
 
 // Util functions
-void init_flags(t_flags *flags);
-int check_flags(char *arg, t_flags *flags);
-int validate_argv(char **args);
+static void init_flags(t_flags *flags);
+static int check_flags(char *argv, t_flags *flags);
+static int validate_argv(char *argv, char **list_str, t_flags *flags);
 int is_valid_number(char *str);
+void ft_error();
+void ft_free(char **nums);
 int check_duplicates(t_stack *stack, int num);
 void message_error();
 t_stack *stack_new(int num);
