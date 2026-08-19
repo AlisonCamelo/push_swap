@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   stack_utils.c                                      :+:      :+:    :+:   */
+/*   push_swap_utils.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 14:17:18 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 17:45:32 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,27 @@ void ft_free(char **nums)
 	while (nums[i])
 		free(nums[i++]);
 	free(nums);
+}
+int	ft_join_args_with_space(char **list_str, char *args)
+{
+	char	*temp;
+	char	*str;
+
+	//Unimos el argumento actual con un espacio al final
+	str = ft_strjoin(args, " ");
+	if (!str)
+		return (0);
+    //Guardamos la cadena vieja para no perder su puntero
+	temp = *list_str;
+	//Unimos lo que teníamos acumulado con el nuevo argumento+espacio
+	*list_str = ft_strjoin(temp, str);
+	//Liberamos la memoria intermedia para evitar leaks
+	free(str);
+	free(temp);
+	//Verificamos que la unión final no haya fallado
+	if (!*list_str)
+		return (0);
+	return (1);
 }
 int check_duplicates(t_stack *stack, int num)
 {
