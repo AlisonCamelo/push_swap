@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 17:45:32 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 17:59:53 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	ft_join_args_with_space(char **list_str, char *args)
 {
 	char	*temp;
 	char	*str;
-
 	//Unimos el argumento actual con un espacio al final
 	str = ft_strjoin(args, " ");
 	if (!str)

@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 17:47:04 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 17:59:31 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,7 @@ static void init_flags(t_flags *flags)
 {
     //parser_nums = -1 no ha leido nada el programa.
     // 0 = el programa esta leyendo las flags del inicio
-    // 1 = el programa ha encontrado y leido numeros, 
-    //si luego hay flags en medio hay errores
+    // 1 = el programa ha encontrado y leido numeros, si luego hay flags en medio hay errores
     flags->parser_nums = -1;
     flags->simple = 0;
     flags->medium = 0;
@@ -47,8 +46,7 @@ static int check_flags(char *argv, t_flags *flags)
     //strategias es la suma de las flags activadas
     strategies = flags->adaptative + flags->simple 
         + flags->medium + flags->complex;
-    //si la suma es mayor que uno eso quiere decir que
-    //han escrito mas de una flag en el codigo
+    //si la suma es mayor que uno eso quiere decir que han escrito mas de una flag en el codigo
     if(strategies > 1)
         return(0);
     flags->has_flag = strategies + flags->bench;
@@ -60,8 +58,7 @@ static int check_valid_num(char *argv, char **list_str, t_flags *flags)
 {
     char **nums;
     int i;
-    //si por aluna razon se encuentra con algo que no sea un
-    //numero, devuelve error. Solo proteccion
+    //si por aluna razon se encuentra con algo que no sea un numero, devuelve error. Solo proteccion
     if(!argv || argv[0] == '-' && argv[1] == '-')
         return(0);
     while(*argv == ' ') //si hay espacios, continua, esto por si alguien solo manda espacios como argumentos
