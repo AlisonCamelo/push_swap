@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/19 21:00:23 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/19 21:05:12 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -121,23 +121,4 @@ int *check_and_valid_args(char **argv, t_flags *flags)
     if (!ft_indexator(list_str, &list_index, flags))
 		return (ft_error_handler(&list_str), NULL);
 	return (free(list_str), list_index);
-}
-
-
-int main(int argc, char **argv)
-{
-    t_movements *move;
-    t_flags flags;
-    int i;
-    
-    if (argc > 1)
-    {
-        init_flags(&flags);
-        i = 1;
-        while (argv[i] != NULL)
-        {
-            if(check_flags(argv[i], &flags));
-        }
-    }    
-    ft_error();
 }
