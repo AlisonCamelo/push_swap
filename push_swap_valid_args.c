@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 17:36:25 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/20 17:38:32 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,10 +40,12 @@ static int parse_str_argv(char *arg, t_stack **stack_a)
     i = 0;
     while(nums[i])
     {
-        if(!is_valid_number(nums[i++]))//pasa nums[i] a is_valid_number y luego incrementa para la siguiente vuelta al buble
-            return(ft_free(nums), 0); //si falla libera memoria y retorna(0)
+        if(!process_nums(nums[i], stack_a))
+            return(free_split(nums), 0);
+        i++;
     }
-    ft_free(nums); //libera todo el split(ya valido todos los textos)
+    free_split(nums); 
+    return(1);
 }
 
 int parse_args(int argc, char **argv, t_stack **stack_a, t_flags *flags)
