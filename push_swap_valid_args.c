@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 17:38:32 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/20 17:40:51 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,15 @@ static int process_flags(char *arg, t_flags *flags)
     else 
         return(0);
     return(1);
+}
+static int	process_nums(char *num, t_stack **stack_a)
+{
+    int     val;
+    t_stack *new_node;
+    
+    if(!ft_atol(num, val))
+        return(0);
+    
 }
 static int parse_str_argv(char *arg, t_stack **stack_a)
 {
