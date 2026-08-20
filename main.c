@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 21:02:22 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 17:19:10 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/20 17:21:01 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,12 @@ static void init_flags(t_flags *flags)
     flags->complex = 0;
     flags->adaptative = 0;
     flags->bench = 0;
+}
+static void handle_error(t_stack **stack_a)
+{
+    ft_free_stack(stack_a);
+    write(2, "Error\n", 6);
+    exit(1);
 }
 int main(int argc, char **argv)
 {

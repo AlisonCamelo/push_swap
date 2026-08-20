@@ -6,37 +6,27 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 17:19:20 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/20 17:25:40 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 
 //chequea flags e implementa las estrategias
-static int check_flags(char *argv, t_flags *flags)
+static int process_flags(char *arg, t_flags *flags)
 {
-	size_t	strategies;
-    if (ft_strcmp(argv, "--simple") == 0)
+    if (ft_strcmp(arg, "--simple") == 0)
         return (flags->simple = 1, 1);
-    else if (ft_strcmp(argv, "--medium") == 0)
+    else if (ft_strcmp(arg, "--medium") == 0)
         return (flags->medium = 1, 1);
-    else if (ft_strcmp(argv, "--complex") == 0)
+    else if (ft_strcmp(arg, "--complex") == 0)
         return (flags->complex = 1, 1);
-    else if (ft_strcmp(argv, "--adaptive") == 0)
+    else if (ft_strcmp(arg, "--adaptive") == 0)
         return (flags->adaptative = 1, 1);
-    else if (ft_strcmp(argv, "--bench") == 0)
+    else if (ft_strcmp(arg, "--bench") == 0)
         return (flags->bench = 1, 1);
     else 
         return(0);
-    //strategias es la suma de las flags activadas
-    strategies = flags->adaptative + flags->simple 
-        + flags->medium + flags->complex;
-    //si la suma es mayor que uno eso quiere decir que han escrito mas de una flag en el codigo
-    if(strategies > 1)
-        return(0);
-    flags->has_flag = strategies + flags->bench;
-    if(flags->parser_nums == 0)
-        flags->parser_nums = 1;
     return(1);
 }
 //funcion que determina si los argumentos son numeros validos a demas una ves hace el split y los demas chequeos
