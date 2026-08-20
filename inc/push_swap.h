@@ -13,7 +13,6 @@
 typedef struct s_stack 
 {
     int value;
-    struct s_stack *prev;
     struct s_stack *next;
 } t_stack;
 
@@ -24,8 +23,6 @@ typedef struct s_flags
     int complex;
     int adaptative;
     int bench;
-    int has_flag;
-    int parser_nums;
 } t_flags;
 
 typedef struct s_movements
