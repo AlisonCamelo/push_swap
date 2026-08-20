@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 17:27:34 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/20 17:31:36 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,21 +70,21 @@ int parse_args(int argc, char **argv, t_stack **stack_a, t_flags *flags)
 {
     int i;
 
-    args = argv;
-    list_str = ft_strdup("");//inicializa una cadena vacia
-    if (!list_str)//si no funciona retrna NULL
-        return(NULL);
-    init_flags(&flags); //inicializa flags
-    while(*args) // mientras args exista
+    i = 1;
+    while(i < argc)
     {
-        if(!check_flags(*args, flags) &&  //si no hay flags y no hay numeros validos 
-                !check_valid_num(*args, &list_str, flags))
-                return(ft_free_and_error(&list_str), 1); // libera el espacio y retorna error
-        args++; //si todo va bien continua iterando en los argumentos y sigue chequeando las flags y los numeros
+        if(argv[i][0] == '-' && argv[i][1] == '-')
+        {
+            if(!process_flags(argv[i], flags))
+                return(0);
+            
+        }
+        else
+        {
+            if(!parse_str_argv(argv[i], stack_a))
+                return(0);
+        }
+        i++;
     }
-    if(flags->simple + flags->medium + flags->complex == 0) //si la suma de las flags es cero eso quiere decir que no han puesto flags
-        flags->adaptative = 1; // por lo tanto debe elegirse adaptaive por defecto
-    if (!ft_indexator(list_str, &list_index, flags))
-		return (ft_error_handler(&list_str), NULL);
-	return (free(list_str), list_index);
+    return(1);
 }
