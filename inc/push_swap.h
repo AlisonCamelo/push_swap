@@ -60,7 +60,7 @@ void free_split(char **split);
 //Indexación y Métrica de Desorden
 int		ft_stack_size(t_stack *stack);
 void	assign_indexes(t_stack *stack);
-double	calculate_disorder(t_stack *stack);
+int	calculate_disorder(t_stack *stack);
 int		is_sorted(t_stack *stack);
 
 // Algorithm utils

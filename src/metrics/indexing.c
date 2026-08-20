@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 20:47:55 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 20:57:39 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/20 21:02:24 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void	assign_indexes(t_stack *stack)
             runner = runner->next;
         }
         current->index = count;
-        current = current->next
+        current = current->next;
     }
 }

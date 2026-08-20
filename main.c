@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 21:02:22 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 20:40:29 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/20 21:10:40 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int main(int argc, char **argv)
 {
     t_stack	*stack_a;
 	t_flags	flags;
-    double	disorder;
+    int	disorder;
 
     if(argc < 2)
         return(0);
@@ -41,7 +41,7 @@ int main(int argc, char **argv)
             handle_error(&stack_a);
     if(!stack_a)
         return(0); //si ya paso por todo esto, el parsing ya ha terminado
-    assing_indexes(stack_a);//Asignar índices de 0 a N-1
+    assign_indexes(stack_a);//Asignar índices de 0 a N-1
     if(is_sorted(stack_a)) //Si ya está ordenada (Desorden 0.0), salir sin emitir instrucciones
         return(free_stack(&stack_a), 0);
     disorder = calculate_disorder(stack_a);//Calcular Métrica de Desorden para la estrategia adaptativa / bench
