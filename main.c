@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 21:02:22 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 17:21:01 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/20 19:38:07 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static void init_flags(t_flags *flags)
 }
 static void handle_error(t_stack **stack_a)
 {
-    ft_free_stack(stack_a);
+    free_stack(stack_a);
     write(2, "Error\n", 6);
     exit(1);
 }
@@ -43,6 +43,6 @@ int main(int argc, char **argv)
     /* El parsing ha finalizado con éxito.
 	** Siguiente paso: Indexación y Cálculo del Disorder Metric.
 	*/
-    ft_free_stack(&stack_a);
+    free_stack(&stack_a);
     return(0);
 }
