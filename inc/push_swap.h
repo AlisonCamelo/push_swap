@@ -52,12 +52,16 @@ static int	process_nums(char *token, t_stack **stack_a);
 static int	ft_is_digit(char c);
 int	ft_is_valid_number(const char *str, int *out_val);
 int check_duplicates(t_stack *stack, int num);
-//utiles para stack y memoria 
+//Utiles para stack y memoria 
 t_stack *stack_new(int num);
 void stack_add_back(t_stack **stack, t_stack *new_node);
 void free_stack(t_stack **stack);
 void free_split(char **split);
-
+//Indexación y Métrica de Desorden
+int		ft_stack_size(t_stack *stack);
+void	assign_indexes(t_stack *stack);
+double	calculate_disorder(t_stack *stack);
+int		is_sorted(t_stack *stack);
 
 // Algorithm utils
 
