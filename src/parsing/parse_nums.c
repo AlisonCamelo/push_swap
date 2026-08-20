@@ -1,60 +1,54 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap_utils.c                                  :+:      :+:    :+:   */
+/*   utils_pushswap.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 16:57:23 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/20 17:55:30 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "inc/push_swap.h"
 
-// Devuelve 1 si es un número válido, 0 si no lo es
-int is_valid_number(char *str)
+static int	ft_is_digit(char c)
 {
-    int j;
+	return (c >= '0' && c <= '9');
+}
+int	ft_is_valid_number(const char *str, int *out_val)
+{
+	int			i, sign;
+	long long	res;
 
-    j = 0;
-    //Si empieza por '+' o '-', saltamos ese carácter
-    if(str[j] == '-' || str[j] == '+')
-        j++;
-    //Si era SOLO "+" o "-" y no hay dígitos después no es valido
-    if(str[j] == '\0')
-    return(0);
-    //Revisamos hasta el final de la cadena ('\0')
-    while(str[j] != '\0')
-    {
-        //Si hay algo que NO es un número entre '0' y '9' no es valido
-        if(!ft_isdigit(str[j]))
-            return(0);
-        j++;
-    }
-    //al good
-    return(1);
+	i = 0;
+	sign = 1;
+	res = 0;
+	if (str[i] == '+' || str[i] == '-')
+	{
+		if (str[i] == '-')
+			sign = -1;
+		i++;
+	}
+	if (!str[i])
+		return (0);
+	while (str[i])
+	{
+		if (!ft_is_digit(str[i]))
+			return (0);
+		res = (res * 10) + (str[i] - '0');
+		if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
+			return (0);
+		i++;
+	}
+	*out_val = (int)(res * sign);
+	return (1);
 }
-void ft_error()
-{
-    write(2, "Error\n", 6);
-}
-void ft_free(char **nums)
-{
-    int i;
 
-    i = 0;
-    if (!nums)
-		return ;
-	while (nums[i])
-		free(nums[i++]);
-	free(nums);
-}
-/*
 int check_duplicates(t_stack *stack, int num)
 {
     //mientras que stack no sea null
-    while(stack != NULL)
+    while(stack)
     {
         if(stack->value == num)
             return(1); //Devuelve 1 cuando esta duplicado
@@ -63,7 +57,7 @@ int check_duplicates(t_stack *stack, int num)
     return(0);//no hay duplicados
 }
 //funcion que crea y retorna un nuevo nodo
-t_stack *stack_new(int num)
+/*t_stack *stack_new(int num)
 {
     t_stack *new_node;
     
