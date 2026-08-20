@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 17:25:40 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/20 17:27:34 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,11 +66,9 @@ static void *ft_free_and_error(char **list_str)
     return(NULL);
 }
  //
-int *check_and_valid_args(char **argv, t_flags *flags)
+int parse_args(int argc, char **argv, t_stack **stack_a, t_flags *flags)
 {
-    char **args;
-    char *list_str;
-    int *list_index;
+    int i;
 
     args = argv;
     list_str = ft_strdup("");//inicializa una cadena vacia
