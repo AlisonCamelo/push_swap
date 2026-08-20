@@ -7,8 +7,10 @@ CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
 # Se añadió la extensión .c que faltaba
-SRC = push_swap.c \
-      src/parsing/push_swap_utils.c \
+SRC = main.c \
+      src/parsing/parse_args.c \
+      src/parsing/parse_nums.c \
+      src/parsing/utils_stack.c \
 
 OBJ = $(SRC:.c=.o)
 

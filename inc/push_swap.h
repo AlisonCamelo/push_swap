@@ -10,11 +10,12 @@
 
 # include "libft/libft.h"
 
-typedef struct s_stack 
+typedef struct s_stack
 {
-    int value;
-    struct s_stack *next;
-} t_stack;
+	int				value;
+	int				index;
+	struct s_stack	*next;
+}	t_stack;
 
 typedef struct s_flags
 {
@@ -41,19 +42,22 @@ typedef struct s_movements
 	int	total_movements;
 }	t_movements;
 
-// Util functions
+//Funciones para parsing y conversion
 static void init_flags(t_flags *flags);
-static int check_flags(char *argv, t_flags *flags);
-static int check_valid_num(char *argv, char **list_str, t_flags *flags);
-int is_valid_number(char *str);
-void ft_error();
-void ft_free(char **nums);
+static void handle_error(t_stack **stack_a);
+int parse_args(int argc, char **argv, t_stack **stack_a, t_flags *flags);
+static int process_flags(char *arg, t_flags *flags);
+static int parse_str_argv(char *arg, t_stack **stack_a);
+static int	process_nums(char *token, t_stack **stack_a);
+static int	ft_is_digit(char c);
+int	ft_is_valid_number(const char *str, int *out_val);
 int check_duplicates(t_stack *stack, int num);
-void message_error();
-int	ft_join_args_with_space(char **list_str, char *args);
-static void *ft_free_and_error(char **list_str);
+//utiles para stack y memoria 
 t_stack *stack_new(int num);
 void stack_add_back(t_stack **stack, t_stack *new_node);
+void free_stack(t_stack **stack);
+void free_split(char **split);
+
 
 // Algorithm utils
 
