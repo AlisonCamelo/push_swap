@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 10:34:09 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/21 13:47:19 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/21 13:47:37 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,12 @@ int	rrb(t_stack **stack_b)
 }
 int	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-    
+	int	moved;
+
+	moved = 0;
+	if (stack_a && *stack_a && (*stack_a)->next)
+		moved += rra(stack_a);
+	if (stack_b && *stack_b && (*stack_b)->next)
+		moved += rrb(stack_b);
+	return (moved);
 }
