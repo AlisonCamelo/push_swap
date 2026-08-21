@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 10:34:06 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/21 12:22:17 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/21 12:24:53 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,13 @@ int	pa(t_stack **stack_a, t_stack **stack_b)
 }
 int	pb(t_stack **stack_a, t_stack **stack_b)
 {
-    
+    t_stack *jump;
+
+    if(!stack_a || !*stack_a)
+        return(0);
+    jump = *stack_a;
+    *stack_a = (*stack_a)->next;
+    jump->next = *stack_a;
+    *stack_a = jump;
+    write(1, "pb\n", 3);
 }
