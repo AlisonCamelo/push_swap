@@ -58,6 +58,9 @@ int	pb(t_stack **stack_a, t_stack **stack_b);
 int	ra(t_stack **stack_a);
 int	rb(t_stack **stack_b);
 int	rr(t_stack **stack_a, t_stack **stack_b);
+int	rra(t_stack **stack_a);
+int	rrb(t_stack **stack_b);
+int	rrr(t_stack **stack_a, t_stack **stack_b);
 
 // Algorithm utils
 
