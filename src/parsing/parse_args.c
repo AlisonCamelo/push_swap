@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 21:24:47 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/21 10:43:45 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,14 +34,14 @@ static int	process_nums(char *token, t_stack **stack_a)
 	int		val;
 	t_stack	*new_node;
 
-	if (!ft_atol_safe(token, &val))
+	if (!ft_is_valid_number(token, &val))
 		return (0);
-	if (has_duplicate(*stack_a, val))
+	if (check_duplicates(*stack_a, val))
 		return (0);
-	new_node = ft_stack_new(val);
+	new_node = stack_new(val);
 	if (!new_node)
 		return (0);
-	ft_stack_add_back(stack_a, new_node);
+	stack_add_back(stack_a, new_node);
 	return (1);
 }
 static int parse_str_argv(char *arg, t_stack **stack_a)
@@ -49,7 +49,7 @@ static int parse_str_argv(char *arg, t_stack **stack_a)
     char **nums;
     int i;
  
-    nums = ft_split(arg, ' ');
+    nums = ft_split(arg, ' '); //CHECKKKK
     if(!nums || !*nums) // split fallo? retorna
         return(free_split(nums), 0);
     i = 0;
