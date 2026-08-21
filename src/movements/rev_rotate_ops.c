@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 10:34:09 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/21 13:44:50 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/21 13:47:19 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,23 @@ int	rra(t_stack **stack_a)
 }
 int	rrb(t_stack **stack_b)
 {
-    
+    t_stack *last;
+    t_stack *first;
+
+    while(!stack_b || !*stack_b || !(*stack_b)->next)
+        return(0);
+    last = NULL;
+    first = *stack_b;
+    while(first->next)
+    {
+        last = first;
+        first = first->next;
+    }
+    last->next = NULL;
+    first->next = *stack_b;
+    *stack_b = first;
+    write(1, "rrb\n", 4);
+    return(1);
 }
 int	rrr(t_stack **stack_a, t_stack **stack_b)
 {
