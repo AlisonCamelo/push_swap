@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 21:02:22 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 21:10:40 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/21 13:03:40 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,12 +30,14 @@ static void handle_error(t_stack **stack_a)
 int main(int argc, char **argv)
 {
     t_stack	*stack_a;
+	t_stack	*stack_b;
 	t_flags	flags;
     int	disorder;
 
     if(argc < 2)
         return(0);
     stack_a = NULL;
+    stack_b = NULL;
     init_flags(&flags);
     if(!parse_args(argc, argv, &stack_a, &flags))
             handle_error(&stack_a);

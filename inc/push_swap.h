@@ -26,23 +26,7 @@ typedef struct s_flags
     int bench;
 } t_flags;
 
-typedef struct s_movements
-{
-	int	sa;
-	int	sb;
-	int	ss;
-	int	pa;
-	int	pb;
-	int	ra;
-	int	rb;
-	int	rr;
-	int	rra;
-	int	rrb;
-	int	rrr;
-	int	total_movements;
-}	t_movements;
-
-//Funciones para parsing y conversion
+//Funciones para parsing, conversion y validación
 static void init_flags(t_flags *flags);
 static void handle_error(t_stack **stack_a);
 int parse_args(int argc, char **argv, t_stack **stack_a, t_flags *flags);
@@ -52,16 +36,28 @@ static int	process_nums(char *token, t_stack **stack_a);
 static int	ft_is_digit(char c);
 int	ft_is_valid_number(const char *str, int *out_val);
 int check_duplicates(t_stack *stack, int num);
-//Utiles para stack y memoria 
+
+//Utiles para listas enlazadas y memoria 
 t_stack *stack_new(int num);
 void stack_add_back(t_stack **stack, t_stack *new_node);
 void free_stack(t_stack **stack);
 void free_split(char **split);
+
 //Indexación y Métrica de Desorden
 int		ft_stack_size(t_stack *stack);
 void	assign_indexes(t_stack *stack);
 int	calculate_disorder(t_stack *stack);
 int		is_sorted(t_stack *stack);
+
+//Funciones utiles para los movimientos
+int	sa(t_stack **stack_a);
+int	sb(t_stack **stack_b);
+int	ss(t_stack **stack_a, t_stack **stack_b);
+int	pa(t_stack **stack_a, t_stack **stack_b);
+int	pb(t_stack **stack_a, t_stack **stack_b);
+int	ra(t_stack **stack_a);
+int	rb(t_stack **stack_b);
+int	rr(t_stack **stack_a, t_stack **stack_b);
 
 // Algorithm utils
 
