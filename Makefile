@@ -11,6 +11,8 @@ SRC = main.c \
       src/parsing/parse_args.c \
       src/parsing/parse_nums.c \
       src/parsing/utils_stack.c \
+      src/metrics/disorder.c \
+      src/parsing/indexing.c \
 
 OBJ = $(SRC:.c=.o)
 

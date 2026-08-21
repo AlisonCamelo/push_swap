@@ -1,4 +1,4 @@
-Este proyecto ha sido creado como parte del currículo de 42 por <login1> y <criredon>.
+Este proyecto ha sido creado como parte del currículo de 42 por <acamelo> y <criredon>.
 
 Push_swap
 
