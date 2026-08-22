@@ -12,7 +12,7 @@ SRC = main.c \
       src/parsing/parse_nums.c \
       src/parsing/utils_stack.c \
       src/metrics/disorder.c \
-      src/parsing/indexing.c \
+      src/metrics/indexing.c \
       src/movements/push_swap_ops.c \
       src/movements/rev_rotate_ops.c \
       src/movements/rotate_ops.c \
