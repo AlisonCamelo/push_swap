@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 13:44:01 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 15:28:39 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ static int	ft_is_digit(char c)
 //esto es como un atol pero reforzado, sirve para verificar signos si son digitos validos a demas, si no se pasan de los limites
 int	ft_is_valid_number(const char *str, int *out_val)
 {
-	int			i, sign;
+	int			i;
+	int			sign;
 	long long	res;
 
 	i = 0;
@@ -42,8 +43,7 @@ int	ft_is_valid_number(const char *str, int *out_val)
 			return (0);//retorna zeroooooooooo
 		i++;
 	}
-	*out_val = (int)(res * sign);
-	return (1);
+	return((*out_val = (int)(res * sign)), 1);
 }
 
 int check_duplicates(t_stack *stack, int num)
