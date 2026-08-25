@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 21:02:22 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 12:50:02 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 13:22:58 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ static void handle_error(t_stack **stack_a)
     write(2, "Error\n", 6);//escribe error en pantalla
     exit(1);//termina
 }
+
 int main(int argc, char **argv)
 {
     t_stack	*stack_a;
@@ -49,5 +50,5 @@ int main(int argc, char **argv)
     disorder = calculate_disorder(stack_a);//Calcular Métrica de Desorden para la estrategia adaptativa / bench
     
     free_stack(&stack_a);
-    return(0);
+    return(1);
 }
