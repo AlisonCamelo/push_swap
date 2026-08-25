@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 15:28:39 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 15:31:43 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,13 @@ int	ft_is_valid_number(const char *str, int *out_val)
 	i = 0;
 	sign = 1;
 	res = 0;
-	if (str[i] == '+' || str[i] == '-')//si hay un signo
+	if (str && (str[i] == '+' || str[i] == '-'))//si hay un signo
 	{
 		if (str[i] == '-')//pero si es negativo
 			sign = -1;//make it positiveee
 		i++;//continua nene por si hay mas 
 	}
-	if (!str[i])//si no hy nada
+	if (!str || !str[i])//si no hy nada
 		return (0);//cero, retorna cera
 	while (str[i])//mientras haya algo en la posicion que se encuentra
 	{
@@ -49,6 +49,7 @@ int	ft_is_valid_number(const char *str, int *out_val)
 int check_duplicates(t_stack *stack, int num)
 {
     //mientras que stack no sea null
+	
     while(stack)
     {
         if(stack->value == num)
