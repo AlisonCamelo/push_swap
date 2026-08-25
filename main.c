@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 21:02:22 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/21 13:03:40 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 12:48:18 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 //inicilizar flags
 static void init_flags(t_flags *flags)
 {
-    flags->simple = 0;
+    flags->simple = 0;//todas empezaran en cero, esto para que no contengan informacion basura redeterminada y facilitar luego el codigo
     flags->medium = 0;
     flags->complex = 0;
     flags->adaptative = 0;
@@ -34,11 +34,11 @@ int main(int argc, char **argv)
 	t_flags	flags;
     int	disorder;
 
-    if(argc < 2)
-        return(0);
-    stack_a = NULL;
-    stack_b = NULL;
-    init_flags(&flags);
+    if(argc < 2)//si solo nombre del programa o un argumento
+        return(0);//error
+    stack_a = NULL;//stacks empiezan en NULL
+    stack_b = NULL;//
+    init_flags(&flags);//inicializar flags
     if(!parse_args(argc, argv, &stack_a, &flags))
             handle_error(&stack_a);
     if(!stack_a)

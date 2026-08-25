@@ -12,9 +12,9 @@
 
 typedef struct s_stack
 {
-	int				value;
-	int				index;
-	struct s_stack	*next;
+	int				value;//numero real
+	int				index;//posicion ordenada
+	struct s_stack	*next;//flecha que apunta a la siguiente cajita
 }	t_stack;
 
 typedef struct s_flags
