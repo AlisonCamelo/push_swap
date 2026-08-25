@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 13:01:07 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 13:08:30 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ static int parse_str_argv(char *arg, t_stack **stack_a)
     free_split(nums);//todo okiii?? freeeeee space
     return(1);//retorna 1, todo oki
 }
-
+//esta funcion nos permite llamar dos auxiliares, que se encargaran de procesar flags (si el usuario las escribe) y, parsear los argumentos,
+//al final parse_args va a devolver un 1 si todo sale ok, el rocessamiento de flags y el parseo de los args
 int parse_args(int argc, char **argv, t_stack **stack_a, t_flags *flags)
 {
     int i;
