@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 18:01:49 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 13:04:00 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,9 @@
 
 static int	ft_is_digit(char c)
 {
-	return (c >= '0' && c <= '9');
+	return (c >= '0' && c <= '9');//es un numero valido?? esta entre 0 y 9???
 }
+//esto es como un atol pero reforzado, sirve para verificar signos si son digitos validos a demas, si no se pasan de los limites
 int	ft_is_valid_number(const char *str, int *out_val)
 {
 	int			i, sign;
@@ -24,18 +25,18 @@ int	ft_is_valid_number(const char *str, int *out_val)
 	i = 0;
 	sign = 1;
 	res = 0;
-	if (str[i] == '+' || str[i] == '-')
+	if (str[i] == '+' || str[i] == '-')//si hay un signo
 	{
-		if (str[i] == '-')
-			sign = -1;
-		i++;
+		if (str[i] == '-')//pero si es negativo
+			sign = -1;//make it positiveee
+		i++;//continua nene por si hay mas 
 	}
-	if (!str[i])
-		return (0);
-	while (str[i])
+	if (!str[i])//si no hy nada
+		return (0);//cero, retorna cera
+	while (str[i])//mientras haya algo en la posicion que se encuentra
 	{
-		if (!ft_is_digit(str[i]))
-			return (0);
+		if (!ft_is_digit(str[i]))//si no es un digito valido
+			return (0);//zeroooo 
 		res = (res * 10) + (str[i] - '0');
 		if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
 			return (0);
