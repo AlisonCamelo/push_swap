@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/21 10:43:45 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 12:52:30 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,12 +68,12 @@ int parse_args(int argc, char **argv, t_stack **stack_a, t_flags *flags)
     int i;
 
     i = 1;
-    while(i < argc)
+    while(i < argc)//mientras el contador sea menor al numero de argumentos
     {
-        if(argv[i][0] == '-' && argv[i][1] == '-')
+        if(argv[i][0] == '-' && argv[i][1] == '-')//si encuentra -- en las dos primeras posiciones del argumento 
         {
-            if(!process_flags(argv[i], flags))
-                return(0);
+            if(!process_flags(argv[i], flags))//ejecuta process_fags pero, si por alguna razon no se pudieron procesar
+                return(0);//retorna 0 (probelmsss)
         }
         else
         {

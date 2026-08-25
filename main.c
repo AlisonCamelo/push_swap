@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 21:02:22 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 12:48:18 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 12:50:02 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,9 @@ static void init_flags(t_flags *flags)
 }
 static void handle_error(t_stack **stack_a)
 {
-    free_stack(stack_a);
-    write(2, "Error\n", 6);
-    exit(1);
+    free_stack(stack_a);//libera memoria del stack
+    write(2, "Error\n", 6);//escribe error en pantalla
+    exit(1);//termina
 }
 int main(int argc, char **argv)
 {
@@ -39,8 +39,8 @@ int main(int argc, char **argv)
     stack_a = NULL;//stacks empiezan en NULL
     stack_b = NULL;//
     init_flags(&flags);//inicializar flags
-    if(!parse_args(argc, argv, &stack_a, &flags))
-            handle_error(&stack_a);
+    if(!parse_args(argc, argv, &stack_a, &flags))//si no se pudo hacer el parseo de los argumentos
+            handle_error(&stack_a);//libera memoria y muestra error en pantalla
     if(!stack_a)
         return(0); //si ya paso por todo esto, el parsing ya ha terminado
     assign_indexes(stack_a);//Asignar índices de 0 a N-1
