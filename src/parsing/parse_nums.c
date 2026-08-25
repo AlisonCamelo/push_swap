@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 13:04:00 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 13:15:58 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,12 +35,12 @@ int	ft_is_valid_number(const char *str, int *out_val)
 		return (0);//cero, retorna cera
 	while (str[i])//mientras haya algo en la posicion que se encuentra
 	{
-		if (!ft_is_digit(str[i]))//si no es un digito valido
+		if (!ft_is_digit(str[i]))//si no es un digito valido es decir cualquiero otra cosa rara
 			return (0);//zeroooo 
-		res = (res * 10) + (str[i] - '0');
-		if ((res * sign) > 2147483647 || (res * sign) < -2147483648)
-			return (0);
-		i++;
+		res = (res * 10) + (str[i] - '0');//esto es para poder procesar numeros largos (mas de dos digitos)
+		if ((res * sign) > 2147483647 || (res * sign) < -2147483648)//si algo sobrepara l max o el min 
+			return (0);//errots
+		i++;//sigue chequeando cada arg
 	}
 	*out_val = (int)(res * sign);
 	return (1);

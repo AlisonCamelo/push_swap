@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 13:08:30 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 13:11:56 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,15 @@ static int process_flags(char *arg, t_flags *flags)
         return(0);//devuelve errorrrts
     return(1);//todo ok
 }
-//si se pudo processar los numeros, es decir parsear, verificar que todo estebien, que sean validos, que no hayan duplicados, y que se hayan podido asignar al stack
+//esta funcion verifica que si se pudo processar los numeros, es decir parsear, verificar que todo este bien, que sean validos, que no hayan duplicados, 
+//y que se hayan podido asignar al stack
 static int	process_nums(char *token, t_stack **stack_a)
 {
 	int		val;
 	t_stack	*new_node;
 
-	if (!ft_is_valid_number(token, &val))
-		return (0);
+	if (!ft_is_valid_number(token, &val))//si no son numeros validos es decir, que haya aglgo despues del numero, que no sobre pase el max y min, que sean digitos entre 0 y 9
+		return (0);//adivinaaa?? return zero
 	if (check_duplicates(*stack_a, val))
 		return (0);
 	new_node = stack_new(val);
@@ -45,7 +46,7 @@ static int	process_nums(char *token, t_stack **stack_a)
 	stack_add_back(stack_a, new_node);
 	return (1);
 }
-//esta funcion va despues de que se verifique que no hay flags
+//esta funcion va despues de que se verifique que no hay mas flags
 static int parse_str_argv(char *arg, t_stack **stack_a)
 {
     char **nums;
