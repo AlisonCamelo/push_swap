@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 21:14:10 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 21:02:11 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 16:49:36 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,11 @@ t_stack *stack_new(int num)
 {
     t_stack *node;
     
-    node = (t_stack *)malloc(sizeof(t_stack));
+    node = malloc(sizeof(t_stack)); // ccambio de asignacion en el malloc
     if (!node)
         return(NULL);
     node->value = num;
-    node->index = -1;
+    node->index = 0;
     node->next = NULL;
     return(node);
 }

@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 15:31:43 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/25 16:48:09 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,8 +48,6 @@ int	ft_is_valid_number(const char *str, int *out_val)
 
 int check_duplicates(t_stack *stack, int num)
 {
-    //mientras que stack no sea null
-	
     while(stack)
     {
         if(stack->value == num)

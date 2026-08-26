@@ -12,9 +12,9 @@
 
 typedef struct s_stack
 {
-	int				value;//numero real
-	int				index;//posicion ordenada
-	struct s_stack	*next;//flecha que apunta a la siguiente cajita
+	int				value;
+	int				index;
+	struct s_stack	*next;
 }	t_stack;
 
 typedef struct s_flags
@@ -63,6 +63,11 @@ int	rrb(t_stack **stack_b);
 int	rrr(t_stack **stack_a, t_stack **stack_b);
 
 // Algorithm utils
+void	sort_three(t_stack **stack_a);
+int		sort_simple(t_stack **stack_a, t_stack **stack_b);
+int	sort_medium(t_stack **stack_a, t_stack **stack_b);
+int	sort_complex(t_stack **stack_a, t_stack **stack_b);
+int		run_strategy(t_stack **a, t_stack **b, t_flags *fl, int disorder);
+void	print_bench(t_flags *flags, int disorder, int ops, char *strat);
 
-// Instruction functions
 #endif
