@@ -4,7 +4,7 @@ LIBFT_DIR = inc/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 CC = cc
-CFLAGS = #-Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -g
 
 # Se añadió la extensión .c que faltaba
 SRC = main.c \

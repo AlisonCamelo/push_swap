@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 10:34:06 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/26 12:48:22 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/27 10:36:11 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,8 +76,8 @@ int	pb(t_stack **stack_a, t_stack **stack_b)
         return(0);
     jump = *stack_a;
     *stack_a = (*stack_a)->next;
-    jump->next = *stack_a;
-    *stack_a = jump;
+    jump->next = *stack_b;
+    *stack_b = jump;
     write(1, "pb\n", 3);
     return(1);
 

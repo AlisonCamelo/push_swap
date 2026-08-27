@@ -6,7 +6,7 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 18:26:22 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 18:26:27 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/27 10:43:13 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static int	get_chunk_size(int size)
 }
 
 // Fase 1: Empujar elementos de A a B por rangos (chunks)
-static int	push_chunks_to_b(t_stack **a, t_stack **b, int size, int chunk)
+static int	push_chunks_to_b(t_stack **a, t_stack **b, int chunk)
 {
 	int	i;
 	int	ops;
@@ -76,7 +76,7 @@ int	sort_medium(t_stack **stack_a, t_stack **stack_b)
 
 	size = ft_stack_size(*stack_a);
 	chunk = get_chunk_size(size);
-	ops = push_chunks_to_b(stack_a, stack_b, size, chunk);
+	ops = push_chunks_to_b(stack_a, stack_b, chunk);
 	while (*stack_b)
 	{
 		max_idx = ft_stack_size(*stack_b) - 1;

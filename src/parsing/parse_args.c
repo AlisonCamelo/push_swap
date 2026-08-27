@@ -6,14 +6,14 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/26 12:37:31 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/27 10:34:52 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //chequea flags e implementa las estrategias
-static int process_flags(char *arg, t_flags *flags)
+int process_flags(char *arg, t_flags *flags)
 {
     if (ft_strcmp(arg, "--simple") == 0)//es simple??, igual simple a 1 y retorna 1
         return (flags->simple = 1, 1);
@@ -31,7 +31,7 @@ static int process_flags(char *arg, t_flags *flags)
 }
 //esta funcion verifica que si se pudo processar los numeros, es decir parsear, verificar que todo este bien, que sean validos, que no hayan duplicados, 
 //y que se hayan podido asignar al stack
-static int	process_nums(char *token, t_stack **stack_a)
+int	process_nums(char *token, t_stack **stack_a)
 {
 	int		val;
 	t_stack	*new_node;
@@ -47,7 +47,7 @@ static int	process_nums(char *token, t_stack **stack_a)
 	return (1);
 }
 //esta funcion va despues de que se verifique que no hay mas flags
-static int parse_str_argv(char *arg, t_stack **stack_a)
+int parse_str_argv(char *arg, t_stack **stack_a)
 {
     char **nums;
     int i;

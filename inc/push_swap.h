@@ -14,8 +14,6 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
-    int             cap;
-    int 
 	struct s_stack	*next;
 }	t_stack;
 
@@ -29,13 +27,13 @@ typedef struct s_flags
 } t_flags;
 
 //Funciones para parsing, conversion y validación
-static void init_flags(t_flags *flags);
-static void handle_error(t_stack **stack_a);
+void init_flags(t_flags *flags);
+void handle_error(t_stack **stack_a);
 int parse_args(int argc, char **argv, t_stack **stack_a, t_flags *flags);
-static int process_flags(char *arg, t_flags *flags);
-static int parse_str_argv(char *arg, t_stack **stack_a);
-static int	process_nums(char *token, t_stack **stack_a);
-static int	ft_is_digit(char c);
+int process_flags(char *arg, t_flags *flags);
+int parse_str_argv(char *arg, t_stack **stack_a);
+int	process_nums(char *token, t_stack **stack_a);
+int	ft_is_digit(char c);
 int	ft_is_valid_number(const char *str, int *out_val);
 int check_duplicates(t_stack *stack, int num);
 

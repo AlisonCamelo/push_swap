@@ -6,22 +6,22 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 21:02:22 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/26 12:25:53 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/27 10:55:08 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 //inicilizar flags
-static void init_flags(t_flags *flags)
+void init_flags(t_flags *flags)
 {
     flags->simple = 0;//todas empezaran en cero, esto para que no contengan informacion basura redeterminada y facilitar luego el codigo
     flags->medium = 0;
     flags->complex = 0;
-    flags->adaptative = 0;
+    flags->adaptative = 1;
     flags->bench = 0;
 }
-static void handle_error(t_stack **stack_a)
+void handle_error(t_stack **stack_a)
 {
     free_stack(stack_a);//libera memoria del stack
     write(2, "Error\n", 6);//escribe error en pantalla
