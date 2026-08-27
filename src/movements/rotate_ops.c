@@ -6,11 +6,11 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 10:34:11 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/21 12:59:08 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/26 12:38:25 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/push_swap.h"
+#include "push_swap.h"
 
 int	ra(t_stack **stack_a)
 {

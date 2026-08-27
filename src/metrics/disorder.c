@@ -6,11 +6,11 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/20 20:47:39 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/20 21:22:01 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/26 12:37:53 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/push_swap.h"
+#include "push_swap.h"
 
 static int count_inversions(t_stack *stack)
 {

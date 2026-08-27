@@ -6,18 +6,18 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 10:34:09 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/21 13:47:37 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/26 13:03:49 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/push_swap.h"
+#include "push_swap.h"
 
 int	rra(t_stack **stack_a)
 {
     t_stack *last;
     t_stack *first;
 
-    while(!stack_a || !*stack_a || !(*stack_a)->next)
+    if(!stack_a || !*stack_a || !(*stack_a)->next)
         return(0);
     last = NULL;
     first = *stack_a;
@@ -32,12 +32,13 @@ int	rra(t_stack **stack_a)
     write(1, "rra\n", 4);
     return(1);
 }
+
 int	rrb(t_stack **stack_b)
 {
     t_stack *last;
     t_stack *first;
 
-    while(!stack_b || !*stack_b || !(*stack_b)->next)
+    if(!stack_b || !*stack_b || !(*stack_b)->next)
         return(0);
     last = NULL;
     first = *stack_b;
@@ -52,6 +53,7 @@ int	rrb(t_stack **stack_b)
     write(1, "rrb\n", 4);
     return(1);
 }
+
 int	rrr(t_stack **stack_a, t_stack **stack_b)
 {
 	int	moved;

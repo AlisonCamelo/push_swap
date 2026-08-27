@@ -6,14 +6,14 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/25 18:29:34 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 18:29:36 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/26 12:48:04 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 // Imprime un entero en descriptor de archivo (stderr)
-static void	ft_putnbr_fd(int n, int fd)
+/*static void	ft_putnbr_fad(int n, int fd)
 {
 	char	c;
 
@@ -37,7 +37,7 @@ static void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
-
+*/
 // Emite el reporte de rendimiento por stderr
 void	print_bench(t_flags *flags, int disorder, int total_ops, char *strategy)
 {

@@ -6,11 +6,11 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 21:02:22 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 18:31:59 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/26 12:25:53 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/push_swap.h"
+#include "push_swap.h"
 
 //inicilizar flags
 static void init_flags(t_flags *flags)
@@ -49,8 +49,7 @@ int main(int argc, char **argv)
         return(free_stack(&stack_a), 0);
     disorder = calculate_disorder(stack_a);//Calcular Métrica de Desorden para la estrategia adaptativa / bench
     run_strategy(&stack_a, &stack_b, &flags, disorder);
-	ft_free_stack(&stack_a);
-	ft_free_stack(&stack_b);
-    free_stack(&stack_a);
+	free_stack(&stack_a);
+	free_stack(&stack_b);
     return(0);
 }

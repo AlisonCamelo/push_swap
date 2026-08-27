@@ -6,11 +6,11 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 11:23:44 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 13:11:56 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/26 12:37:31 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/push_swap.h"
+#include "push_swap.h"
 
 //chequea flags e implementa las estrategias
 static int process_flags(char *arg, t_flags *flags)

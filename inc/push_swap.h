@@ -14,6 +14,8 @@ typedef struct s_stack
 {
 	int				value;
 	int				index;
+    int             cap;
+    int 
 	struct s_stack	*next;
 }	t_stack;
 

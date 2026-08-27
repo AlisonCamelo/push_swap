@@ -6,11 +6,11 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/18 16:44:26 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 16:48:09 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/26 12:37:39 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/push_swap.h"
+#include "push_swap.h"
 
 static int	ft_is_digit(char c)
 {

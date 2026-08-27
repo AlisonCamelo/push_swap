@@ -6,11 +6,11 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/19 21:14:10 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/25 16:49:36 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/26 12:37:46 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/push_swap.h"
+#include "push_swap.h"
 
 //funcion que crea y retorna un nuevo nodo
 t_stack *stack_new(int num)

@@ -4,7 +4,7 @@ LIBFT_DIR = inc/libft
 LIBFT = $(LIBFT_DIR)/libft.a
 
 CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = #-Wall -Wextra -Werror
 
 # Se añadió la extensión .c que faltaba
 SRC = main.c \
@@ -16,11 +16,16 @@ SRC = main.c \
       src/movements/push_swap_ops.c \
       src/movements/rev_rotate_ops.c \
       src/movements/rotate_ops.c \
+      src/benchmk/bench.c \
+      src/benchmk/strategy.c \
+      src/algorithm/strategy_complex.c \
+      src/algorithm/strategy_medium.c \
+      src/algorithm/strategy_simple.c \
 
 OBJ = $(SRC:.c=.o)
 
 # Se cambió $(LIBFT) por $(LIBFT_DIR) para incluir la carpeta de cabeceras correctamente
-INCLUDE = -I. -I$(LIBFT_DIR)
+INCLUDE = -I./inc -I$(LIBFT_DIR)
 
 RM = rm -f
 

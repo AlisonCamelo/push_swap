@@ -6,11 +6,11 @@
 /*   By: acamelo <acamelo@student.42madrid.com>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/08/21 10:34:06 by acamelo           #+#    #+#             */
-/*   Updated: 2026/08/21 13:12:39 by acamelo          ###   ########.fr       */
+/*   Updated: 2026/08/26 12:48:22 by acamelo          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "inc/push_swap.h"
+#include "push_swap.h"
 
 int	sa(t_stack **stack_a)
 {
@@ -79,4 +79,6 @@ int	pb(t_stack **stack_a, t_stack **stack_b)
     jump->next = *stack_a;
     *stack_a = jump;
     write(1, "pb\n", 3);
+    return(1);
+
 }
